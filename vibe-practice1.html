@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>今日のおみくじ</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        #result {
+            font-size: 40px;
+            margin: 30px;
+            color: aqua;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>今日の運勢</h1>
+    <div id="result">？</div>
+    <button onclick="draw()">おみくじを引く</button>
+
+    <script>
+        function draw() {
+            const results = ["大吉", "中吉", "小吉", "吉", "末吉", "超大吉"];
+            const num = Math.floor(Math.random() * results.length);
+            document.getElementById("result").textContent = results[num];
+        }
+    </script>
+</body>
+
+</html>
