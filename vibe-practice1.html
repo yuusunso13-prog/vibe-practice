@@ -28,14 +28,27 @@
     <h1>今日の運勢</h1>
     <div id="result">？</div>
     <button onclick="draw()">おみくじを引く</button>
+    <p id="count">引いた回数：0回</p>
+    <ul id="history"></ul>
+
 
     <script>
+        const history = [];
+
         function draw() {
             const results = ["大吉", "中吉", "小吉", "吉", "末吉", "超大吉"];
             const num = Math.floor(Math.random() * results.length);
-            document.getElementById("result").textContent = results[num];
+            const fortune = results[num];
+            document.getElementById("result").textContent = fortune;
+
+            history.push(fortune);
+            document.getElementById("count").textContent = "引いた回数：" + history.length + "回";
+            document.getElementById("history").innerHTML =
+                history.map(f => "<li>" + f + "</li>").join("");
         }
     </script>
+
+
 </body>
 
 </html>
